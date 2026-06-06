@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Product } from "./components/Product";
+import { ProductList } from "./components/ProductList";
 import type { IProduct } from "./types/Product";
 
 function App() {
@@ -9,12 +9,6 @@ function App() {
       name: "Producto N1",
       price: 100,
       stock: 10,
-    },
-    {
-      id: 2,
-      name: "Producto N2",
-      price: 200,
-      stock: 20,
     },
   ]);
 
@@ -29,14 +23,10 @@ function App() {
       },
     ]);
   };
-
   return (
     <>
       <div className="app">ts-react-learn</div>
-      {products.map((prod) => (
-        <Product key={prod.id} product={prod} />
-      ))}
-      <button onClick={addProduct}>Add Product</button>
+      <ProductList products={products} addProduct={addProduct} />
     </>
   );
 }
